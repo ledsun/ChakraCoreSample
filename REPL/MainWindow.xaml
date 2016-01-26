@@ -1,0 +1,29 @@
+﻿<Window x:Class="REPL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:REPL"
+        mc:Ignorable="d"
+        Title="ChakraCore REPL"
+        Height="450"
+        Width="600" Closing="DisposeChakraRuntime">
+
+    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBox
+            Height="250" 
+            Width="600"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            Text="{Binding Script.Value}"
+            VerticalScrollBarVisibility="Auto"
+            FontSize="20"
+            />
+        <Button Click="Button_Click" >実行(RUN)</Button>
+        <Button Click="ResetContext">初期化(Reset)</Button>
+        <TextBlock
+            TextWrapping="Wrap"
+            Text="{Binding Result.Value}"
+            />
+    </StackPanel>
+</Window>
